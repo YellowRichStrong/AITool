@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>按钮点击测试</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 3rem;
+            background: #f0f0f0;
+        }
+        
+        .test-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .alert {
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid;
+        }
+        
+        .alert-info {
+            background: #e3f2fd;
+            border-color: #2196f3;
+            color: #1976d2;
+        }
+        
+        .alert-success {
+            background: #e8f5e9;
+            border-color: #4caf50;
+            color: #2e7d32;
+        }
+        
+        .view-toggle {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin: 2rem 0;
+        }
+        
+        .view-btn {
+            width: 80px;
+            height: 80px;
+            background: #f8f9fa;
+            border: 3px solid #e0e0e0;
+            border-radius: 12px;
+            color: #666;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            font-size: 2rem;
+        }
+        
+        .view-btn:hover {
+            background: #e3f2fd;
+            border-color: #2196f3;
+            color: #2196f3;
+            transform: scale(1.1);
+        }
+        
+        .view-btn.active {
+            background: #2196f3;
+            color: white;
+            border-color: #2196f3;
+            box-shadow: 0 4px 12px rgba(33, 150, 243, 0.4);
+        }
+        
+        .view-btn span {
+            font-size: 0.8rem;
+        }
+        
+        #status {
+            padding: 1.5rem;
+            background: #1e1e1e;
+            color: #00ff00;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            max-height: 400px;
+            overflow-y: auto;
+            white-space: pre-wrap;
+        }
+        
+        .click-count {
+            text-align: center;
+            font-size: 3rem;
+            font-weight: bold;
+            color: #2196f3;
+            margin: 2rem 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <h1 style="text-align: center; color: #333;">🔍 按钮点击测试</h1>
+        
+        <div class="alert alert-info">
+            <strong>测试说明：</strong> 点击下面的按钮，观察是否有反应。每次点击都会更新计数器和日志。
+        </div>
+        
+        <div class="view-toggle">
+            <button class="view-btn active" data-view="grid">
+                <i class="fas fa-th"></i>
+                <span>网格</span>
+            </button>
+            <button class="view-btn" data-view="list">
+                <i class="fas fa-list"></i>
+                <span>列表</span>
+            </button>
+        </div>
+        
+        <div class="click-count">
+            点击次数: <span id="clickCount">0</span>
+        </div>
+        
+        <div class="alert alert-success" id="currentMode">
+            当前模式: <strong>网格视图</strong>
+        </div>
+        
+        <h3>事件日志：</h3>
+        <div id="status"></div>
+    </div>
+    
+    <script>
+        let clickCount = 0;
+        const statusDiv = document.getElementById('status');
+        const clickCountSpan = document.getElementById('clickCount');
+        const currentModeDiv = document.getElementById('currentMode');
+        
+        function log(message, color = '#00ff00') {
+            const time = new Date().toLocaleTimeString();
+            const logLine = `[${time}] ${message}\n`;
+            statusDiv.innerHTML += logLine;
+            statusDiv.style.color = color;
+            statusDiv.scrollTop = statusDiv.scrollHeight;
+            console.log(message);
+        }
+        
+        // 方法1: 直接绑定每个按钮
+        log('🚀 开始初始化...', '#00ff00');
+        const viewBtns = document.querySelectorAll('.view-btn');
+        log(`✅ 找到 ${viewBtns.length} 个按钮`, '#00ff00');
+        
+        viewBtns.forEach((btn, index) => {
+            log(`🔗 绑定按钮 ${index + 1}, data-view: ${btn.dataset.view}`, '#ffff00');
+            
+            // 方法1: addEventListener
+            btn.addEventListener('click', function(e) {
+                clickCount++;
+                clickCountSpan.textContent = clickCount;
+                
+                const view = this.dataset.view;
+                log(`\n🖱️ 按钮被点击！`, '#00ffff');
+                log(`   视图类型: ${view}`, '#00ffff');
+                log(`   总点击次数: ${clickCount}`, '#00ffff');
+                
+                // 更新按钮状态
+                viewBtns.forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                
+                // 更新显示
+                if (view === 'grid') {
+                    currentModeDiv.innerHTML = '当前模式: <strong>网格视图</strong>';
+                    log('✅ 切换到网格视图', '#00ff00');
+                } else {
+                    currentModeDiv.innerHTML = '当前模式: <strong>列表视图</strong>';
+                    log('✅ 切换到列表视图', '#00ff00');
+                }
+            });
+            
+            // 方法2: onclick（备用）
+            btn.onclick = function() {
+                log('⚠️ onclick 也被触发了（正常）', '#ff9800');
+            };
+        });
+        
+        // 方法3: 事件委托
+        document.addEventListener('click', function(e) {
+            if (e.target.closest('.view-btn')) {
+                log('🎯 事件委托检测到点击', '#9c27b0');
+            }
+        });
+        
+        log('✅ 所有事件监听器绑定完成', '#00ff00');
+        log('📌 请点击上面的按钮进行测试', '#ffff00');
+        log('-----------------------------------\n', '#666');
+    </script>
+</body>
+</html>

@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>视图切换调试</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 2rem;
+            background: #f0f0f0;
+        }
+        
+        .debug-info {
+            background: #fff3cd;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border-left: 4px solid #ffc107;
+            border-radius: 4px;
+        }
+        
+        .status {
+            background: white;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border-radius: 8px;
+            border: 2px solid #007bff;
+        }
+        
+        .controls {
+            background: white;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            border-radius: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .view-toggle {
+            display: flex;
+            gap: 0.5rem;
+        }
+        
+        .view-btn {
+            width: 50px;
+            height: 50px;
+            background: #f8f9fa;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            color: #666;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+        
+        .view-btn:hover {
+            background: #e3f2fd;
+            border-color: #007bff;
+            color: #007bff;
+            transform: scale(1.1);
+        }
+        
+        .view-btn.active {
+            background: #007bff;
+            color: white;
+            border-color: #007bff;
+            box-shadow: 0 4px 12px rgba(0, 123, 255, 0.4);
+        }
+        
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.5rem;
+            transition: all 0.4s ease;
+        }
+        
+        .tools-grid.list-view {
+            grid-template-columns: 1fr !important;
+        }
+        
+        .tool-card {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            border: 2px solid #e0e0e0;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .tool-card:hover {
+            border-color: #007bff;
+            box-shadow: 0 8px 24px rgba(0, 123, 255, 0.2);
+            transform: translateY(-2px);
+        }
+        
+        /* 网格视图 */
+        .tools-grid.grid-view .tool-card {
+            display: block;
+        }
+        
+        /* 列表视图 */
+        .tools-grid.list-view .tool-card {
+            display: flex !important;
+            flex-direction: row !important;
+            align-items: center !important;
+            gap: 2rem;
+        }
+        
+        .tool-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.8rem;
+            flex-shrink: 0;
+        }
+        
+        .tool-content {
+            flex: 1;
+        }
+        
+        .tool-name {
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+        
+        .tool-description {
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        #log {
+            background: #1e1e1e;
+            color: #00ff00;
+            padding: 1rem;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            max-height: 300px;
+            overflow-y: auto;
+            margin-top: 2rem;
+        }
+        
+        .log-entry {
+            margin: 0.25rem 0;
+            padding: 0.25rem;
+            border-bottom: 1px solid #333;
+        }
+        
+        .log-success { color: #4caf50; }
+        .log-info { color: #2196f3; }
+        .log-warning { color: #ff9800; }
+        .log-error { color: #f44336; }
+    </style>
+</head>
+<body>
+    <div class="debug-info">
+        <h3>🔍 视图切换调试工具</h3>
+        <p>点击下方的视图切换按钮，观察工具卡片的变化，并查看控制台日志。</p>
+    </div>
+    
+    <div class="status">
+        <strong>当前视图模式：</strong>
+        <span id="currentView" style="color: #007bff; font-weight: bold; font-size: 1.2rem;">网格视图</span>
+        <br>
+        <strong>toolsGrid 类名：</strong>
+        <span id="gridClasses" style="color: #666; font-family: monospace;"></span>
+    </div>
+    
+    <div class="controls">
+        <h2>AI 工具列表</h2>
+        <div class="view-toggle">
+            <button class="view-btn active" data-view="grid" title="网格视图">
+                <i class="fas fa-th"></i>
+            </button>
+            <button class="view-btn" data-view="list" title="列表视图">
+                <i class="fas fa-list"></i>
+            </button>
+        </div>
+    </div>
+    
+    <div class="tools-grid grid-view" id="toolsGrid">
+        <div class="tool-card">
+            <div class="tool-icon">
+                <i class="fas fa-comments"></i>
+            </div>
+            <div class="tool-content">
+                <div class="tool-name">ChatGPT</div>
+                <div class="tool-description">强大的AI对话助手，能够回答各种问题并协助完成多种任务。基于GPT-4架构，支持多轮对话和上下文理解。</div>
+            </div>
+        </div>
+        
+        <div class="tool-card">
+            <div class="tool-icon">
+                <i class="fas fa-paint-brush"></i>
+            </div>
+            <div class="tool-content">
+                <div class="tool-name">Midjourney</div>
+                <div class="tool-description">专业的AI图像生成工具，能够根据文字描述生成高质量艺术作品。支持多种艺术风格和自定义参数。</div>
+            </div>
+        </div>
+        
+        <div class="tool-card">
+            <div class="tool-icon">
+                <i class="fas fa-code"></i>
+            </div>
+            <div class="tool-content">
+                <div class="tool-name">GitHub Copilot</div>
+                <div class="tool-description">AI编程助手，能够自动补全代码并提供编程建议。支持多种编程语言和IDE集成。</div>
+            </div>
+        </div>
+        
+        <div class="tool-card">
+            <div class="tool-icon">
+                <i class="fas fa-film"></i>
+            </div>
+            <div class="tool-content">
+                <div class="tool-name">Runway</div>
+                <div class="tool-description">AI视频编辑和生成平台，支持多种视频处理功能。包括视频生成、编辑、特效等强大功能。</div>
+            </div>
+        </div>
+        
+        <div class="tool-card">
+            <div class="tool-icon">
+                <i class="fas fa-microphone"></i>
+            </div>
+            <div class="tool-content">
+                <div class="tool-name">ElevenLabs</div>
+                <div class="tool-description">AI语音合成工具，能够生成自然流畅的语音。支持多种语言和音色，可用于配音、有声读物等。</div>
+            </div>
+        </div>
+        
+        <div class="tool-card">
+            <div class="tool-icon">
+                <i class="fas fa-sticky-note"></i>
+            </div>
+            <div class="tool-content">
+                <div class="tool-name">Notion AI</div>
+                <div class="tool-description">集成在Notion中的AI写作助手，提升文档创作效率。支持智能摘要、续写、翻译等功能。</div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="log">
+        <div class="log-entry log-info">📋 调试日志：</div>
+    </div>
+    
+    <script>
+        const log = document.getElementById('log');
+        
+        function addLog(message, type = 'info') {
+            const entry = document.createElement('div');
+            entry.className = `log-entry log-${type}`;
+            const time = new Date().toLocaleTimeString();
+            entry.textContent = `[${time}] ${message}`;
+            log.appendChild(entry);
+            log.scrollTop = log.scrollHeight;
+            console.log(message);
+        }
+        
+        // 视图切换功能
+        document.querySelectorAll('.view-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const view = btn.dataset.view;
+                addLog(`🖱️ 点击视图切换按钮: ${view}`, 'info');
+                
+                // 更新按钮状态
+                document.querySelectorAll('.view-btn').forEach(b => {
+                    b.classList.remove('active');
+                });
+                btn.classList.add('active');
+                addLog('✅ 按钮状态已更新', 'success');
+                
+                // 切换视图
+                const toolsGrid = document.getElementById('toolsGrid');
+                
+                if (view === 'grid') {
+                    toolsGrid.classList.remove('list-view');
+                    toolsGrid.classList.add('grid-view');
+                    document.getElementById('currentView').textContent = '网格视图 (Grid View)';
+                    addLog('🎯 已切换到网格视图', 'success');
+                } else if (view === 'list') {
+                    toolsGrid.classList.remove('grid-view');
+                    toolsGrid.classList.add('list-view');
+                    document.getElementById('currentView').textContent = '列表视图 (List View)';
+                    addLog('📋 已切换到列表视图', 'success');
+                }
+                
+                // 显示当前类名
+                document.getElementById('gridClasses').textContent = toolsGrid.className;
+                addLog(`📦 toolsGrid.className = "${toolsGrid.className}"`, 'info');
+                
+                // 检查样式
+                const computedStyle = window.getComputedStyle(toolsGrid);
+                addLog(`📐 grid-template-columns = "${computedStyle.gridTemplateColumns}"`, 'info');
+                
+                // 检查第一个卡片的display属性
+                const firstCard = toolsGrid.querySelector('.tool-card');
+                if (firstCard) {
+                    const cardStyle = window.getComputedStyle(firstCard);
+                    addLog(`🃏 第一个卡片 display = "${cardStyle.display}"`, 'info');
+                    addLog(`🃏 第一个卡片 flex-direction = "${cardStyle.flexDirection}"`, 'info');
+                }
+            });
+        });
+        
+        // 页面加载时记录初始状态
+        window.addEventListener('load', () => {
+            addLog('🚀 页面加载完成', 'success');
+            const toolsGrid = document.getElementById('toolsGrid');
+            document.getElementById('gridClasses').textContent = toolsGrid.className;
+            addLog(`📦 初始 className = "${toolsGrid.className}"`, 'info');
+        });
+    </script>
+</body>
+</html>

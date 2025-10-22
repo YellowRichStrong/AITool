@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>视图切换测试</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            padding: 2rem;
+            background: #f8f9fa;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+        }
+
+        .view-toggle {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .view-btn {
+            width: 40px;
+            height: 40px;
+            background: #f8f9fa;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            color: #666;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .view-btn:hover {
+            background: #f0f8ff;
+            border-color: #007bff;
+            color: #007bff;
+        }
+
+        .view-btn.active {
+            background: #007bff;
+            color: white;
+            border-color: #007bff;
+        }
+
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .tools-grid.list-view {
+            grid-template-columns: 1fr !important;
+        }
+
+        .tool-card {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            border: 1px solid #e0e0e0;
+            transition: all 0.3s ease;
+        }
+
+        .tool-card:hover {
+            box-shadow: 0 8px 25px rgba(0, 123, 255, 0.2);
+            border-color: #007bff;
+        }
+
+        .tools-grid.list-view .tool-card {
+            display: flex !important;
+            flex-direction: row !important;
+            align-items: center !important;
+        }
+
+        .tool-icon {
+            width: 50px;
+            height: 50px;
+            background: #007bff;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .tools-grid.list-view .tool-icon {
+            width: 60px !important;
+            height: 60px !important;
+            margin-right: 2rem;
+        }
+
+        .tool-content {
+            flex: 1;
+        }
+
+        .tool-name {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .tool-description {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .status {
+            background: #e3f2fd;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            border-left: 4px solid #007bff;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="status">
+            <strong>当前视图：</strong> <span id="currentView">网格视图</span>
+        </div>
+
+        <div class="header">
+            <h2>工具列表</h2>
+            <div class="view-toggle">
+                <button class="view-btn active" data-view="grid" title="网格视图">
+                    <i class="fas fa-th"></i>
+                </button>
+                <button class="view-btn" data-view="list" title="列表视图">
+                    <i class="fas fa-list"></i>
+                </button>
+            </div>
+        </div>
+
+        <div class="tools-grid grid-view" id="toolsGrid">
+            <div class="tool-card">
+                <div class="tool-icon">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <div class="tool-content">
+                    <div class="tool-name">ChatGPT</div>
+                    <div class="tool-description">强大的AI对话助手，能够回答各种问题并协助完成多种任务</div>
+                </div>
+            </div>
+
+            <div class="tool-card">
+                <div class="tool-icon">
+                    <i class="fas fa-image"></i>
+                </div>
+                <div class="tool-content">
+                    <div class="tool-name">Midjourney</div>
+                    <div class="tool-description">专业的AI图像生成工具，能够根据文字描述生成高质量艺术作品</div>
+                </div>
+            </div>
+
+            <div class="tool-card">
+                <div class="tool-icon">
+                    <i class="fas fa-code"></i>
+                </div>
+                <div class="tool-content">
+                    <div class="tool-name">GitHub Copilot</div>
+                    <div class="tool-description">AI编程助手，能够自动补全代码并提供编程建议</div>
+                </div>
+            </div>
+
+            <div class="tool-card">
+                <div class="tool-icon">
+                    <i class="fas fa-video"></i>
+                </div>
+                <div class="tool-content">
+                    <div class="tool-name">Runway</div>
+                    <div class="tool-description">AI视频编辑和生成平台，支持多种视频处理功能</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 视图切换功能
+        document.querySelectorAll('.view-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const view = btn.dataset.view;
+                console.log('切换视图到:', view);
+
+                // 更新按钮状态
+                document.querySelectorAll('.view-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                // 切换视图
+                const toolsGrid = document.getElementById('toolsGrid');
+                if (view === 'grid') {
+                    toolsGrid.classList.remove('list-view');
+                    toolsGrid.classList.add('grid-view');
+                    document.getElementById('currentView').textContent = '网格视图';
+                } else if (view === 'list') {
+                    toolsGrid.classList.remove('grid-view');
+                    toolsGrid.classList.add('list-view');
+                    document.getElementById('currentView').textContent = '列表视图';
+                }
+
+                console.log('toolsGrid classes:', toolsGrid.className);
+            });
+        });
+    </script>
+</body>
+</html>
