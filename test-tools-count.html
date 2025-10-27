@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>工具数量测试</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            background: #f5f5f5;
+        }
+        .result {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .result h2 {
+            color: #333;
+            margin-top: 0;
+        }
+        .tool-item {
+            padding: 8px;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+        }
+        .category {
+            color: #666;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <h1>🔍 AI工具数据检查</h1>
+    
+    <div class="result">
+        <h2>数据统计</h2>
+        <p><strong>当前语言：</strong> <span id="currentLang"></span></p>
+        <p><strong>中文简体工具总数：</strong> <span id="zhToolsCount"></span></p>
+        <p><strong>英文工具总数：</strong> <span id="enToolsCount"></span></p>
+    </div>
+
+    <div class="result">
+        <h2>中文简体工具列表（前20个）</h2>
+        <div id="toolsList"></div>
+    </div>
+
+    <div class="result">
+        <h2>按分类统计</h2>
+        <div id="categoryStats"></div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // 显示当前语言
+        document.getElementById('currentLang').textContent = currentLang;
+        
+        // 获取工具数据
+        const zhTools = toolsData['zh-cn'] || [];
+        const enTools = toolsData['en'] || [];
+        
+        // 显示工具数量
+        document.getElementById('zhToolsCount').textContent = zhTools.length;
+        document.getElementById('enToolsCount').textContent = enTools.length;
+        
+        // 显示前20个工具
+        const toolsList = document.getElementById('toolsList');
+        zhTools.slice(0, 20).forEach((tool, index) => {
+            const div = document.createElement('div');
+            div.className = 'tool-item';
+            div.innerHTML = `
+                <span><strong>ID ${tool.id}:</strong> ${tool.name}</span>
+                <span class="category">${tool.category}</span>
+            `;
+            toolsList.appendChild(div);
+        });
+        
+        // 按分类统计
+        const categoryMap = {};
+        zhTools.forEach(tool => {
+            categoryMap[tool.category] = (categoryMap[tool.category] || 0) + 1;
+        });
+        
+        const categoryStats = document.getElementById('categoryStats');
+        Object.entries(categoryMap).forEach(([category, count]) => {
+            const div = document.createElement('div');
+            div.className = 'tool-item';
+            div.innerHTML = `
+                <span>${category}</span>
+                <strong>${count} 个工具</strong>
+            `;
+            categoryStats.appendChild(div);
+        });
+        
+        // 在控制台输出详细信息
+        console.log('=== 工具数据检查 ===');
+        console.log('中文简体工具数量:', zhTools.length);
+        console.log('英文工具数量:', enTools.length);
+        console.log('所有工具ID:', zhTools.map(t => t.id));
+        console.log('分类统计:', categoryMap);
+    </script>
+</body>
+</html>

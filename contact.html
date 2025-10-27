@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>联系我们 - AI工具大全</title>
+    <meta name="description" content="联系AI工具大全团队，我们随时准备为您解答疑问">
+    <meta name="robots" content="index, follow">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        .contact-page {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 120px 20px 60px;
+        }
+        .contact-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        .contact-header h1 {
+            font-size: 2.8rem;
+            color: #333;
+            margin-bottom: 1rem;
+        }
+        .contact-header p {
+            font-size: 1.2rem;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+        .contact-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            text-align: center;
+            transition: all 0.3s;
+            border: 2px solid transparent;
+        }
+        .contact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(102, 126, 234, 0.15);
+            border-color: #667eea;
+        }
+        .contact-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 2rem;
+            color: white;
+        }
+        .contact-card h3 {
+            font-size: 1.5rem;
+            color: #333;
+            margin-bottom: 1rem;
+        }
+        .contact-card p {
+            color: #666;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+        .contact-link {
+            display: inline-block;
+            padding: 12px 30px;
+            background: #667eea;
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        .contact-link:hover {
+            background: #764ba2;
+            transform: scale(1.05);
+        }
+        .email-highlight {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 3rem;
+            border-radius: 16px;
+            text-align: center;
+            margin: 3rem 0;
+        }
+        .email-highlight h2 {
+            color: white;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        .email-highlight .email-address {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin: 1.5rem 0;
+            word-break: break-all;
+        }
+        .email-highlight .email-address a {
+            color: white;
+            text-decoration: none;
+            border-bottom: 2px solid rgba(255,255,255,0.5);
+            transition: all 0.3s;
+        }
+        .email-highlight .email-address a:hover {
+            border-bottom-color: white;
+        }
+        .back-link {
+            display: inline-block;
+            margin-bottom: 2rem;
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        .back-link:hover {
+            transform: translateX(-5px);
+        }
+        .faq-section {
+            margin-top: 4rem;
+        }
+        .faq-section h2 {
+            font-size: 2rem;
+            color: #333;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        .faq-item {
+            background: #f8f9ff;
+            padding: 1.8rem;
+            border-radius: 12px;
+            margin-bottom: 1.5rem;
+            border-left: 4px solid #667eea;
+        }
+        .faq-item h3 {
+            color: #667eea;
+            font-size: 1.2rem;
+            margin-bottom: 0.8rem;
+        }
+        .faq-item p {
+            color: #555;
+            line-height: 1.7;
+            margin: 0;
+        }
+        .response-time {
+            text-align: center;
+            padding: 2rem;
+            background: #fff3cd;
+            border-radius: 12px;
+            margin: 2rem 0;
+            border: 2px solid #ffc107;
+        }
+        .response-time i {
+            font-size: 2.5rem;
+            color: #ffc107;
+            margin-bottom: 1rem;
+        }
+        .response-time h3 {
+            color: #333;
+            margin-bottom: 0.5rem;
+        }
+        .response-time p {
+            color: #666;
+            margin: 0;
+        }
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+        .social-link {
+            width: 50px;
+            height: 50px;
+            background: #f5f7ff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #667eea;
+            font-size: 1.5rem;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        .social-link:hover {
+            background: #667eea;
+            color: white;
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-robot"></i>
+                <span>AI工具大全</span>
+            </div>
+            <div class="nav-menu">
+                <a href="index.html" class="nav-link">首页</a>
+                <a href="index.html#categories" class="nav-link">分类</a>
+                <a href="index.html#popular" class="nav-link">热门</a>
+                <a href="index.html#latest" class="nav-link">最新</a>
+            </div>
+            <div class="nav-auth">
+                <a href="index.html" class="btn-primary">返回主页</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="contact-page">
+        <a href="index.html" class="back-link">
+            <i class="fas fa-arrow-left"></i> 返回首页
+        </a>
+
+        <div class="contact-header">
+            <h1><i class="fas fa-envelope-open-text"></i> 联系我们</h1>
+            <p>我们随时准备为您解答疑问、收集反馈，并帮助您更好地使用AI工具大全</p>
+        </div>
+
+        <!-- 主要联系方式 -->
+        <div class="email-highlight">
+            <i class="fas fa-envelope" style="font-size: 3rem; margin-bottom: 1rem;"></i>
+            <h2>通过电子邮件联系我们</h2>
+            <p style="opacity: 0.95; font-size: 1.1rem; margin-bottom: 0.5rem;">我们的官方邮箱</p>
+            <div class="email-address">
+                <a href="mailto:tankeapp@gmail.com">tankeapp@gmail.com</a>
+            </div>
+            <p style="opacity: 0.9; margin-top: 1.5rem;">
+                <i class="fas fa-info-circle"></i> 请在邮件标题中注明您的问题类型，以便我们更快地为您服务
+            </p>
+        </div>
+
+        <!-- 响应时间 -->
+        <div class="response-time">
+            <i class="fas fa-clock"></i>
+            <h3>预计响应时间</h3>
+            <p><strong>1-2个工作日</strong></p>
+            <p style="margin-top: 0.5rem; font-size: 0.95rem;">我们会尽快回复您的邮件，复杂问题可能需要更长时间</p>
+        </div>
+
+        <!-- 联系类型 -->
+        <div class="contact-grid">
+            <div class="contact-card">
+                <div class="contact-icon">
+                    <i class="fas fa-question-circle"></i>
+                </div>
+                <h3>一般咨询</h3>
+                <p>关于网站功能、工具推荐、使用帮助等问题</p>
+                <a href="mailto:tankeapp@gmail.com?subject=一般咨询" class="contact-link">
+                    <i class="fas fa-envelope"></i> 发送邮件
+                </a>
+            </div>
+
+            <div class="contact-card">
+                <div class="contact-icon">
+                    <i class="fas fa-bug"></i>
+                </div>
+                <h3>问题反馈</h3>
+                <p>发现网站BUG或遇到技术问题？告诉我们！</p>
+                <a href="mailto:tankeapp@gmail.com?subject=问题反馈" class="contact-link">
+                    <i class="fas fa-envelope"></i> 发送邮件
+                </a>
+            </div>
+
+            <div class="contact-card">
+                <div class="contact-icon">
+                    <i class="fas fa-lightbulb"></i>
+                </div>
+                <h3>建议与反馈</h3>
+                <p>您的建议帮助我们改进！分享您的想法</p>
+                <a href="mailto:tankeapp@gmail.com?subject=建议与反馈" class="contact-link">
+                    <i class="fas fa-envelope"></i> 发送邮件
+                </a>
+            </div>
+
+            <div class="contact-card">
+                <div class="contact-icon">
+                    <i class="fas fa-handshake"></i>
+                </div>
+                <h3>商务合作</h3>
+                <p>工具收录、广告投放、合作机会</p>
+                <a href="mailto:tankeapp@gmail.com?subject=商务合作" class="contact-link">
+                    <i class="fas fa-envelope"></i> 发送邮件
+                </a>
+            </div>
+
+            <div class="contact-card">
+                <div class="contact-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <h3>隐私与安全</h3>
+                <p>关于隐私政策、数据安全的问题</p>
+                <a href="mailto:tankeapp@gmail.com?subject=隐私与安全" class="contact-link">
+                    <i class="fas fa-envelope"></i> 发送邮件
+                </a>
+            </div>
+
+            <div class="contact-card">
+                <div class="contact-icon">
+                    <i class="fas fa-plus-circle"></i>
+                </div>
+                <h3>提交工具</h3>
+                <p>推荐优秀的AI工具加入我们的列表</p>
+                <a href="mailto:tankeapp@gmail.com?subject=提交AI工具" class="contact-link">
+                    <i class="fas fa-envelope"></i> 发送邮件
+                </a>
+            </div>
+        </div>
+
+        <!-- 常见问题 -->
+        <div class="faq-section">
+            <h2><i class="fas fa-comments"></i> 常见问题</h2>
+            
+            <div class="faq-item">
+                <h3><i class="fas fa-chevron-right"></i> 如何提交新的AI工具？</h3>
+                <p>请发送邮件至 <strong>tankeapp@gmail.com</strong>，在邮件中包含：工具名称、官网链接、功能简介、工具分类、是否免费等信息。我们会在审核后添加到网站。</p>
+            </div>
+
+            <div class="faq-item">
+                <h3><i class="fas fa-chevron-right"></i> 工具信息不准确怎么办？</h3>
+                <p>如果您发现某个工具的信息（如价格、功能描述等）不准确或过时，请通过邮件告诉我们，我们会及时更新。</p>
+            </div>
+
+            <div class="faq-item">
+                <h3><i class="fas fa-chevron-right"></i> 可以申请移除工具吗？</h3>
+                <p>如果您是工具的所有者，并希望从我们的列表中移除，请发送邮件说明原因。我们会在收到请求后24小时内处理。</p>
+            </div>
+
+            <div class="faq-item">
+                <h3><i class="fas fa-chevron-right"></i> 网站支持哪些语言？</h3>
+                <p>目前我们支持10种语言：中文简体、中文繁体、英文、日文、韩文、西班牙文、法文、德文、葡萄牙文和俄文。您可以通过右上角的语言选择器切换。</p>
+            </div>
+
+            <div class="faq-item">
+                <h3><i class="fas fa-chevron-right"></i> 如何获取工具使用教程？</h3>
+                <p>我们正在逐步添加工具使用教程和评测文章。您也可以通过邮件请求特定工具的教程，我们会优先考虑制作。</p>
+            </div>
+
+            <div class="faq-item">
+                <h3><i class="fas fa-chevron-right"></i> 商务合作有哪些方式？</h3>
+                <p>我们接受工具收录推荐、广告投放、内容合作等多种形式。具体合作方案请通过邮件联系我们详谈。</p>
+            </div>
+        </div>
+
+        <!-- 邮件模板提示 -->
+        <div style="background: #f8f9ff; padding: 2rem; border-radius: 12px; margin: 3rem 0; border-left: 4px solid #667eea;">
+            <h3 style="color: #667eea; margin-bottom: 1rem;">
+                <i class="fas fa-envelope-open-text"></i> 邮件模板建议
+            </h3>
+            <p style="color: #555; line-height: 1.7; margin-bottom: 1rem;">为了帮助我们更快地处理您的邮件，建议包含以下信息：</p>
+            <ul style="color: #555; line-height: 1.8; margin-left: 2rem;">
+                <li><strong>邮件标题</strong>：清晰说明问题类型（如"问题反馈"、"工具提交"等）</li>
+                <li><strong>详细描述</strong>：具体说明您的问题或需求</li>
+                <li><strong>截图</strong>：如果是技术问题，提供截图会很有帮助</li>
+                <li><strong>联系方式</strong>：如需电话沟通，请留下您的联系方式</li>
+                <li><strong>紧急程度</strong>：说明问题的优先级</li>
+            </ul>
+        </div>
+
+        <!-- 社交媒体链接（预留） -->
+        <div style="text-align: center; margin-top: 4rem; padding-top: 3rem; border-top: 2px solid #e0e0e0;">
+            <h3 style="color: #333; margin-bottom: 1.5rem;">关注我们</h3>
+            <p style="color: #666; margin-bottom: 2rem;">获取最新的AI工具资讯和更新</p>
+            <div class="social-links">
+                <a href="#" class="social-link" title="Twitter" aria-label="Twitter">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="#" class="social-link" title="Facebook" aria-label="Facebook">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="#" class="social-link" title="LinkedIn" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="#" class="social-link" title="GitHub" aria-label="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="mailto:tankeapp@gmail.com" class="social-link" title="Email" aria-label="Email">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </div>
+            <p style="color: #999; font-size: 0.9rem; margin-top: 1.5rem;">
+                （社交媒体账号即将开通，敬请期待）
+            </p>
+        </div>
+
+        <!-- 相关链接 -->
+        <div style="text-align: center; margin-top: 3rem; padding-top: 2rem; border-top: 2px solid #e0e0e0;">
+            <p style="color: #666; margin-bottom: 1rem;">相关文档</p>
+            <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                <a href="terms.html" style="color: #667eea; text-decoration: none; font-weight: 600;">
+                    <i class="fas fa-file-contract"></i> 使用条款
+                </a>
+                <a href="privacy.html" style="color: #667eea; text-decoration: none; font-weight: 600;">
+                    <i class="fas fa-shield-alt"></i> 隐私政策
+                </a>
+                <a href="index.html" style="color: #667eea; text-decoration: none; font-weight: 600;">
+                    <i class="fas fa-home"></i> 返回首页
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>AI工具大全</h3>
+                    <p>发现最新最全的AI工具</p>
+                    <p style="margin-top: 1rem;">
+                        <i class="fas fa-envelope"></i> tankeapp@gmail.com
+                    </p>
+                </div>
+                <div class="footer-section">
+                    <h4>法律信息</h4>
+                    <ul>
+                        <li><a href="terms.html">使用条款</a></li>
+                        <li><a href="privacy.html">隐私政策</a></li>
+                        <li><a href="contact.html">联系我们</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 AI工具大全. 保留所有权利.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

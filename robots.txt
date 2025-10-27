@@ -1,0 +1,43 @@
+# AI工具大全 - Robots.txt
+# 网站地址: https://yoursite.com
+
+User-agent: *
+Allow: /
+
+# 允许访问核心页面
+Allow: /index.html
+Allow: /styles.css
+Allow: /script.js
+
+# 禁止访问测试页面
+Disallow: /test-*.html
+Disallow: /debug-*.html
+Disallow: /login-test.html
+Disallow: /click-test.html
+
+# 网站地图
+Sitemap: https://yoursite.com/sitemap.xml
+
+# 爬取延迟（可选，防止过度抓取）
+Crawl-delay: 1
+
+# 针对特定搜索引擎的配置
+# Google
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+# Bing
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 0
+
+# Baidu（百度）
+User-agent: Baiduspider
+Allow: /
+Crawl-delay: 1
+
+# Yandex
+User-agent: Yandex
+Allow: /
+Crawl-delay: 1
