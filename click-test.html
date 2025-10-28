@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>按钮点击测试</title>
+    <title>Button Click Test</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
 <!-- Google tag (gtag.js) -->
@@ -116,32 +116,32 @@
 </head>
 <body>
     <div class="test-container">
-        <h1 style="text-align: center; color: #333;">🔍 按钮点击测试</h1>
+        <h1 style="text-align: center; color: #333;">🔍 Button Click Test</h1>
         
         <div class="alert alert-info">
-            <strong>测试说明：</strong> 点击下面的按钮，观察是否有反应。每次点击都会更新计数器和日志。
+            <strong>Test Instructions:</strong> Click the buttons below and observe the response. Each click will update the counter and log.
         </div>
         
         <div class="view-toggle">
             <button class="view-btn active" data-view="grid">
                 <i class="fas fa-th"></i>
-                <span>网格</span>
+                <span>Grid</span>
             </button>
             <button class="view-btn" data-view="list">
                 <i class="fas fa-list"></i>
-                <span>列表</span>
+                <span>List</span>
             </button>
         </div>
         
         <div class="click-count">
-            点击次数: <span id="clickCount">0</span>
+            Click Count: <span id="clickCount">0</span>
         </div>
         
         <div class="alert alert-success" id="currentMode">
-            当前模式: <strong>网格视图</strong>
+            Current Mode: <strong>Grid View</strong>
         </div>
         
-        <h3>事件日志：</h3>
+        <h3>Event Log:</h3>
         <div id="status"></div>
     </div>
     
@@ -161,12 +161,12 @@
         }
         
         // 方法1: 直接绑定每个按钮
-        log('🚀 开始初始化...', '#00ff00');
+        log('🚀 Initializing...', '#00ff00');
         const viewBtns = document.querySelectorAll('.view-btn');
-        log(`✅ 找到 ${viewBtns.length} 个按钮`, '#00ff00');
+        log(`✅ Found ${viewBtns.length} buttons`, '#00ff00');
         
         viewBtns.forEach((btn, index) => {
-            log(`🔗 绑定按钮 ${index + 1}, data-view: ${btn.dataset.view}`, '#ffff00');
+            log(`🔗 Binding button ${index + 1}, data-view: ${btn.dataset.view}`, '#ffff00');
             
             // 方法1: addEventListener
             btn.addEventListener('click', function(e) {
@@ -174,9 +174,9 @@
                 clickCountSpan.textContent = clickCount;
                 
                 const view = this.dataset.view;
-                log(`\n🖱️ 按钮被点击！`, '#00ffff');
-                log(`   视图类型: ${view}`, '#00ffff');
-                log(`   总点击次数: ${clickCount}`, '#00ffff');
+                log(`\n🖱️ Button clicked!`, '#00ffff');
+                log(`   View type: ${view}`, '#00ffff');
+                log(`   Total clicks: ${clickCount}`, '#00ffff');
                 
                 // 更新按钮状态
                 viewBtns.forEach(b => b.classList.remove('active'));
@@ -184,29 +184,29 @@
                 
                 // 更新显示
                 if (view === 'grid') {
-                    currentModeDiv.innerHTML = '当前模式: <strong>网格视图</strong>';
-                    log('✅ 切换到网格视图', '#00ff00');
+                    currentModeDiv.innerHTML = 'Current Mode: <strong>Grid View</strong>';
+                    log('✅ Switched to grid view', '#00ff00');
                 } else {
-                    currentModeDiv.innerHTML = '当前模式: <strong>列表视图</strong>';
-                    log('✅ 切换到列表视图', '#00ff00');
+                    currentModeDiv.innerHTML = 'Current Mode: <strong>List View</strong>';
+                    log('✅ Switched to list view', '#00ff00');
                 }
             });
             
             // 方法2: onclick（备用）
             btn.onclick = function() {
-                log('⚠️ onclick 也被触发了（正常）', '#ff9800');
+                log('⚠️ onclick was also triggered (normal)', '#ff9800');
             };
         });
         
         // 方法3: 事件委托
         document.addEventListener('click', function(e) {
             if (e.target.closest('.view-btn')) {
-                log('🎯 事件委托检测到点击', '#9c27b0');
+                log('🎯 Event delegation detected click', '#9c27b0');
             }
         });
         
-        log('✅ 所有事件监听器绑定完成', '#00ff00');
-        log('📌 请点击上面的按钮进行测试', '#ffff00');
+        log('✅ All event listeners bound', '#00ff00');
+        log('📌 Please click the buttons above to test', '#ffff00');
         log('-----------------------------------\n', '#666');
     </script>
 </body>

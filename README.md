@@ -1,130 +1,129 @@
-# AI工具大全 - 网站预览
+# AI Tools Hub - Website Preview
 
-这是一个AI工具分类展示网站，包含以下功能：
+This is an AI tools classification showcase website with the following features:
 
-## 功能特性
+## Features
 
-### 🏠 首页功能
-- **响应式导航栏**：包含Logo、菜单、搜索框和登录按钮
-- **Hero区域**：大标题和搜索功能
-- **分类网格**：9个AI工具分类，每个都有图标和描述
-- **热门工具**：展示评分最高的AI工具
-- **最新工具**：展示最新添加的AI工具
+### 🏠 Home Page Features
+- **Responsive Navigation Bar**: Includes Logo, menu, search box, and login button
+- **Hero Section**: Large title and search functionality
+- **Category Grid**: 9 AI tool categories, each with icon and description
+- **Popular Tools**: Showcase highest-rated AI tools
+- **Latest Tools**: Showcase newly added AI tools
 
-### 🤖 AI对话框功能
-- **智能助手**：右下角悬浮的AI聊天窗口
-- **工具推荐**：根据用户需求推荐合适的AI工具
-- **问题解答**：回答关于AI工具的问题
-- **快捷操作**：预设的快速操作按钮
-- **实时对话**：支持多轮对话交互
+### 🤖 AI Chatbox Features
+- **Smart Assistant**: Floating AI chat window in the bottom right corner
+- **Tool Recommendations**: Recommend suitable AI tools based on user needs
+- **Question Answering**: Answer questions about AI tools
+- **Quick Actions**: Preset quick action buttons
+- **Real-time Conversation**: Support multi-turn conversation interaction
 
-### 🛠️ 工具展示功能
-- **工具卡片**：展示工具名称、描述、评分、标签
-- **详情模态框**：点击工具查看详细信息
-- **收藏功能**：用户可以收藏喜欢的工具
-- **直接访问**：一键跳转到工具官网
+### 🛠️ Tool Display Features
+- **Tool Cards**: Display tool name, description, rating, tags
+- **Detail Modal**: Click tools to view detailed information
+- **Favorite Function**: Users can favorite their preferred tools
+- **Direct Access**: One-click access to tool official websites
 
-### 📱 响应式设计
-- **桌面端**：多列网格布局
-- **平板端**：2-3列布局
-- **手机端**：单列布局，优化移动体验
+### 📱 Responsive Design
+- **Desktop**: Multi-column grid layout
+- **Tablet**: 2-3 column layout
+- **Mobile**: Single column layout, optimized mobile experience
 
-## 文件结构
+## File Structure
 
 ```
 web/
-├── index.html          # 主页面文件
-├── styles.css          # 样式文件
-├── script.js           # JavaScript功能文件
-└── README.md           # 说明文档
+├── index.html          # Main page file
+├── styles.css          # Stylesheet file
+├── script.js           # JavaScript functionality file
+└── README.md           # Documentation
 ```
 
-## 使用方法
+## Usage
 
-1. **直接打开**：在浏览器中打开 `index.html` 文件即可预览
-2. **本地服务器**：使用任何本地服务器运行（推荐）
-3. **在线部署**：上传到任何静态网站托管服务
+1. **Direct Open**: Open `index.html` file in browser to preview
+2. **Local Server**: Run with any local server (recommended)
+3. **Online Deployment**: Upload to any static website hosting service
 
-## 技术栈
+## Tech Stack
 
-- **HTML5**：语义化标签和现代HTML结构
-- **CSS3**：Flexbox、Grid、动画效果、响应式设计
-- **JavaScript ES6+**：现代JavaScript语法和功能
-- **Font Awesome**：图标库
-- **纯原生代码**：无框架依赖，轻量级实现
+- **HTML5**: Semantic tags and modern HTML structure
+- **CSS3**: Flexbox, Grid, animations, responsive design
+- **JavaScript ES6+**: Modern JavaScript syntax and features
+- **Font Awesome**: Icon library
+- **Pure Native Code**: No framework dependencies, lightweight implementation
 
-## 主要功能演示
+## Main Feature Demos
 
-### 1. 分类浏览
-- 点击任意分类卡片查看该分类下的工具
-- 每个分类都有独特的颜色主题
+### 1. Category Browsing
+- Click any category card to view tools in that category
+- Each category has a unique color theme
 
-### 2. 工具搜索
-- 顶部导航栏和Hero区域的搜索功能
-- 支持按工具名称、描述、分类搜索
+### 2. Tool Search
+- Search functionality in top navigation bar and Hero section
+- Support searching by tool name, description, category
 
-### 3. AI助手对话
-- 点击右下角聊天图标打开AI助手
-- 尝试询问："推荐一些文案生成工具"
-- 使用快捷操作按钮快速提问
+### 3. AI Assistant Chat
+- Click chat icon in bottom right corner to open AI assistant
+- Try asking: "Recommend some copywriting tools"
+- Use quick action buttons for quick questions
 
-### 4. 工具详情
-- 点击任意工具卡片查看详细信息
-- 包含评分、评价数量、功能标签等
+### 4. Tool Details
+- Click any tool card to view detailed information
+- Includes rating, review count, feature tags, etc.
 
-## 自定义说明
+## Customization Guide
 
-### 添加新工具
-在 `script.js` 文件的 `tools` 数组中添加新工具对象：
+### Add New Tools
+Add new tool objects in the `tools` array in `script.js` file:
 
 ```javascript
 {
     id: 9,
-    name: "工具名称",
-    description: "工具描述",
-    category: "分类名称",
+    name: "Tool Name",
+    description: "Tool Description",
+    category: "Category Name",
     rating: 4.5,
     reviews: 100,
-    tags: ["免费", "在线"],
+    tags: ["Free", "Online"],
     image: "fas fa-icon",
     url: "https://example.com",
     featured: false
 }
 ```
 
-### 添加新分类
-在 `categories` 数组中添加新分类：
+### Add New Categories
+Add new categories in the `categories` array:
 
 ```javascript
 {
     id: 10,
-    name: "分类名称",
-    description: "分类描述",
+    name: "Category Name",
+    description: "Category Description",
     icon: "fas fa-icon",
     toolCount: 5,
     color: "#hexcolor"
 }
 ```
 
-### 自定义AI回复
-在 `aiResponses` 对象中添加新的回复规则。
+### Customize AI Responses
+Add new response rules in the `aiResponses` object.
 
-## 浏览器兼容性
+## Browser Compatibility
 
 - Chrome 60+
 - Firefox 55+
 - Safari 12+
 - Edge 79+
 
-## 下一步开发建议
+## Next Development Suggestions
 
-1. **后端集成**：连接真实的数据API
-2. **用户系统**：实现用户注册、登录、收藏功能
-3. **数据库**：存储工具信息和用户数据
-4. **SEO优化**：添加meta标签和结构化数据
-5. **性能优化**：图片懒加载、代码分割等
+1. **Backend Integration**: Connect to real data APIs
+2. **User System**: Implement user registration, login, favorite functions
+3. **Database**: Store tool information and user data
+4. **SEO Optimization**: Add meta tags and structured data
+5. **Performance Optimization**: Image lazy loading, code splitting, etc.
 
 ---
 
-**注意**：这是一个演示版本，AI对话功能使用预设回复模拟。在实际部署时需要集成真实的AI API服务。
-
+**Note**: This is a demo version. AI chat functionality uses preset responses for simulation. In actual deployment, real AI API services need to be integrated.

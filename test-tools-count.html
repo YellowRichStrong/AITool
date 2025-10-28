@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>工具数量测试</title>
+    <title>Tools Count Test</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -34,22 +34,22 @@
     </style>
 </head>
 <body>
-    <h1>🔍 AI工具数据检查</h1>
+    <h1>🔍 AI Tools Data Check</h1>
     
     <div class="result">
-        <h2>数据统计</h2>
-        <p><strong>当前语言：</strong> <span id="currentLang"></span></p>
-        <p><strong>中文简体工具总数：</strong> <span id="zhToolsCount"></span></p>
-        <p><strong>英文工具总数：</strong> <span id="enToolsCount"></span></p>
+        <h2>Data Statistics</h2>
+        <p><strong>Current Language:</strong> <span id="currentLang"></span></p>
+        <p><strong>Simplified Chinese Tools Total:</strong> <span id="zhToolsCount"></span></p>
+        <p><strong>English Tools Total:</strong> <span id="enToolsCount"></span></p>
     </div>
 
     <div class="result">
-        <h2>中文简体工具列表（前20个）</h2>
+        <h2>Simplified Chinese Tools List (First 20)</h2>
         <div id="toolsList"></div>
     </div>
 
     <div class="result">
-        <h2>按分类统计</h2>
+        <h2>Statistics by Category</h2>
         <div id="categoryStats"></div>
     </div>
 
@@ -90,17 +90,17 @@
             div.className = 'tool-item';
             div.innerHTML = `
                 <span>${category}</span>
-                <strong>${count} 个工具</strong>
+                <strong>${count} tools</strong>
             `;
             categoryStats.appendChild(div);
         });
         
         // 在控制台输出详细信息
-        console.log('=== 工具数据检查 ===');
-        console.log('中文简体工具数量:', zhTools.length);
-        console.log('英文工具数量:', enTools.length);
-        console.log('所有工具ID:', zhTools.map(t => t.id));
-        console.log('分类统计:', categoryMap);
+        console.log('=== Tools Data Check ===');
+        console.log('Simplified Chinese Tools Count:', zhTools.length);
+        console.log('English Tools Count:', enTools.length);
+        console.log('All Tool IDs:', zhTools.map(t => t.id));
+        console.log('Category Statistics:', categoryMap);
     </script>
 </body>
 </html>

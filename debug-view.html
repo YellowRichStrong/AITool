@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>视图切换调试</title>
+    <title>View Switch Debug</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
 <!-- Google tag (gtag.js) -->
@@ -177,25 +177,25 @@
 </head>
 <body>
     <div class="debug-info">
-        <h3>🔍 视图切换调试工具</h3>
-        <p>点击下方的视图切换按钮，观察工具卡片的变化，并查看控制台日志。</p>
+        <h3>🔍 View Switch Debug Tool</h3>
+        <p>Click the view switch buttons below, observe the tool cards changes, and check the console logs.</p>
     </div>
     
     <div class="status">
-        <strong>当前视图模式：</strong>
-        <span id="currentView" style="color: #007bff; font-weight: bold; font-size: 1.2rem;">网格视图</span>
+        <strong>Current View Mode:</strong>
+        <span id="currentView" style="color: #007bff; font-weight: bold; font-size: 1.2rem;">Grid View</span>
         <br>
-        <strong>toolsGrid 类名：</strong>
+        <strong>toolsGrid Classes:</strong>
         <span id="gridClasses" style="color: #666; font-family: monospace;"></span>
     </div>
     
     <div class="controls">
-        <h2>AI 工具列表</h2>
+        <h2>AI Tools List</h2>
         <div class="view-toggle">
-            <button class="view-btn active" data-view="grid" title="网格视图">
+            <button class="view-btn active" data-view="grid" title="Grid View">
                 <i class="fas fa-th"></i>
             </button>
-            <button class="view-btn" data-view="list" title="列表视图">
+            <button class="view-btn" data-view="list" title="List View">
                 <i class="fas fa-list"></i>
             </button>
         </div>
@@ -208,7 +208,7 @@
             </div>
             <div class="tool-content">
                 <div class="tool-name">ChatGPT</div>
-                <div class="tool-description">强大的AI对话助手，能够回答各种问题并协助完成多种任务。基于GPT-4架构，支持多轮对话和上下文理解。</div>
+                <div class="tool-description">Powerful AI conversation assistant capable of answering various questions and assisting with multiple tasks. Based on GPT-4 architecture, supports multi-turn conversations and context understanding.</div>
             </div>
         </div>
         
@@ -218,7 +218,7 @@
             </div>
             <div class="tool-content">
                 <div class="tool-name">Midjourney</div>
-                <div class="tool-description">专业的AI图像生成工具，能够根据文字描述生成高质量艺术作品。支持多种艺术风格和自定义参数。</div>
+                <div class="tool-description">Professional AI image generation tool that can create high-quality artwork from text descriptions. Supports multiple art styles and custom parameters.</div>
             </div>
         </div>
         
@@ -228,7 +228,7 @@
             </div>
             <div class="tool-content">
                 <div class="tool-name">GitHub Copilot</div>
-                <div class="tool-description">AI编程助手，能够自动补全代码并提供编程建议。支持多种编程语言和IDE集成。</div>
+                <div class="tool-description">AI programming assistant that can auto-complete code and provide programming suggestions. Supports multiple programming languages and IDE integration.</div>
             </div>
         </div>
         
@@ -238,7 +238,7 @@
             </div>
             <div class="tool-content">
                 <div class="tool-name">Runway</div>
-                <div class="tool-description">AI视频编辑和生成平台，支持多种视频处理功能。包括视频生成、编辑、特效等强大功能。</div>
+                <div class="tool-description">AI video editing and generation platform that supports multiple video processing functions. Includes video generation, editing, effects and other powerful features.</div>
             </div>
         </div>
         
@@ -248,7 +248,7 @@
             </div>
             <div class="tool-content">
                 <div class="tool-name">ElevenLabs</div>
-                <div class="tool-description">AI语音合成工具，能够生成自然流畅的语音。支持多种语言和音色，可用于配音、有声读物等。</div>
+                <div class="tool-description">AI voice synthesis tool that can generate natural and fluent speech. Supports multiple languages and voices, suitable for voiceovers, audiobooks, etc.</div>
             </div>
         </div>
         
@@ -258,13 +258,13 @@
             </div>
             <div class="tool-content">
                 <div class="tool-name">Notion AI</div>
-                <div class="tool-description">集成在Notion中的AI写作助手，提升文档创作效率。支持智能摘要、续写、翻译等功能。</div>
+                <div class="tool-description">AI writing assistant integrated in Notion to improve document creation efficiency. Supports smart summarization, continuation, translation and other functions.</div>
             </div>
         </div>
     </div>
     
     <div id="log">
-        <div class="log-entry log-info">📋 调试日志：</div>
+        <div class="log-entry log-info">📋 Debug Log:</div>
     </div>
     
     <script>
@@ -284,14 +284,14 @@
         document.querySelectorAll('.view-btn').forEach(btn => {
             btn.addEventListener('click', () => {
                 const view = btn.dataset.view;
-                addLog(`🖱️ 点击视图切换按钮: ${view}`, 'info');
+                addLog(`🖱️ Clicked view switch button: ${view}`, 'info');
                 
                 // 更新按钮状态
                 document.querySelectorAll('.view-btn').forEach(b => {
                     b.classList.remove('active');
                 });
                 btn.classList.add('active');
-                addLog('✅ 按钮状态已更新', 'success');
+                addLog('✅ Button status updated', 'success');
                 
                 // 切换视图
                 const toolsGrid = document.getElementById('toolsGrid');
@@ -299,13 +299,13 @@
                 if (view === 'grid') {
                     toolsGrid.classList.remove('list-view');
                     toolsGrid.classList.add('grid-view');
-                    document.getElementById('currentView').textContent = '网格视图 (Grid View)';
-                    addLog('🎯 已切换到网格视图', 'success');
+                    document.getElementById('currentView').textContent = 'Grid View';
+                    addLog('🎯 Switched to grid view', 'success');
                 } else if (view === 'list') {
                     toolsGrid.classList.remove('grid-view');
                     toolsGrid.classList.add('list-view');
-                    document.getElementById('currentView').textContent = '列表视图 (List View)';
-                    addLog('📋 已切换到列表视图', 'success');
+                    document.getElementById('currentView').textContent = 'List View';
+                    addLog('📋 Switched to list view', 'success');
                 }
                 
                 // 显示当前类名
@@ -320,18 +320,18 @@
                 const firstCard = toolsGrid.querySelector('.tool-card');
                 if (firstCard) {
                     const cardStyle = window.getComputedStyle(firstCard);
-                    addLog(`🃏 第一个卡片 display = "${cardStyle.display}"`, 'info');
-                    addLog(`🃏 第一个卡片 flex-direction = "${cardStyle.flexDirection}"`, 'info');
+                    addLog(`🃏 First card display = "${cardStyle.display}"`, 'info');
+                    addLog(`🃏 First card flex-direction = "${cardStyle.flexDirection}"`, 'info');
                 }
             });
         });
         
         // 页面加载时记录初始状态
         window.addEventListener('load', () => {
-            addLog('🚀 页面加载完成', 'success');
+            addLog('🚀 Page loaded', 'success');
             const toolsGrid = document.getElementById('toolsGrid');
             document.getElementById('gridClasses').textContent = toolsGrid.className;
-            addLog(`📦 初始 className = "${toolsGrid.className}"`, 'info');
+            addLog(`📦 Initial className = "${toolsGrid.className}"`, 'info');
         });
     </script>
 </body>

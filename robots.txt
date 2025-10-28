@@ -1,27 +1,27 @@
-# AI工具大全 - Robots.txt
-# 网站地址: https://yoursite.com
+# AI Tools Hub - Robots.txt
+# Website: https://yoursite.com
 
 User-agent: *
 Allow: /
 
-# 允许访问核心页面
+# Allow access to core pages
 Allow: /index.html
 Allow: /styles.css
 Allow: /script.js
 
-# 禁止访问测试页面
+# Disallow access to test pages
 Disallow: /test-*.html
 Disallow: /debug-*.html
 Disallow: /login-test.html
 Disallow: /click-test.html
 
-# 网站地图
+# Sitemap
 Sitemap: https://yoursite.com/sitemap.xml
 
-# 爬取延迟（可选，防止过度抓取）
+# Crawl delay (optional, to prevent excessive crawling)
 Crawl-delay: 1
 
-# 针对特定搜索引擎的配置
+# Configuration for specific search engines
 # Google
 User-agent: Googlebot
 Allow: /
@@ -32,7 +32,7 @@ User-agent: Bingbot
 Allow: /
 Crawl-delay: 0
 
-# Baidu（百度）
+# Baidu
 User-agent: Baiduspider
 Allow: /
 Crawl-delay: 1

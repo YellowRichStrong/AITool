@@ -6,7 +6,7 @@
 // ============================================================================
 
 // 当前语言（需要在数据之前定义）
-let currentLang = 'zh-cn';
+let currentLang = 'en';
 
 // ============================================================================
 // [2] 数据层 - 分类数据 (Data Layer - Categories)
@@ -1730,9 +1730,7 @@ function initializeEventListeners() {
     // 个人中心模态框关闭
     const profileModalClose = document.getElementById('profileModalClose');
     if (profileModalClose) {
-        profileModalClose.addEventListener('click', (e) => {
-            e.stopPropagation();
-            e.preventDefault();
+        profileModalClose.addEventListener('click', () => {
             const profileModal = document.getElementById('profileModal');
             if (profileModal) {
                 profileModal.classList.remove('active');
@@ -1744,8 +1742,7 @@ function initializeEventListeners() {
     const profileModal = document.getElementById('profileModal');
     if (profileModal) {
         profileModal.addEventListener('click', (e) => {
-            // 只在点击模态框背景（而非内容区域）时关闭
-            if (e.target === profileModal && !e.target.closest('.modal-content')) {
+            if (e.target === profileModal) {
                 profileModal.classList.remove('active');
             }
         });
@@ -1754,9 +1751,7 @@ function initializeEventListeners() {
     // 模态框关闭
     const modalClose = document.getElementById('modalClose');
     if (modalClose && toolModal) {
-        modalClose.addEventListener('click', (e) => {
-            e.stopPropagation();
-            e.preventDefault();
+        modalClose.addEventListener('click', () => {
             toolModal.classList.remove('active');
         });
     }
@@ -1764,8 +1759,7 @@ function initializeEventListeners() {
     // 点击模态框外部关闭
     if (toolModal) {
         toolModal.addEventListener('click', (e) => {
-            // 只在点击模态框背景（而非内容区域）时关闭
-            if (e.target === toolModal && !e.target.closest('.modal-content')) {
+            if (e.target === toolModal) {
                 toolModal.classList.remove('active');
             }
         });
@@ -1776,40 +1770,14 @@ function initializeEventListeners() {
     const articleModal = document.getElementById('articleModal');
     
     if (articleModalClose && articleModal) {
-        articleModalClose.addEventListener('click', (e) => {
-            e.stopPropagation();
-            e.preventDefault();
+        articleModalClose.addEventListener('click', () => {
             articleModal.classList.remove('active');
         });
         
         // 点击文章模态框外部关闭
         articleModal.addEventListener('click', (e) => {
-            // 只在点击模态框背景（而非内容区域）时关闭
-            if (e.target === articleModal && !e.target.closest('.modal-content')) {
+            if (e.target === articleModal) {
                 articleModal.classList.remove('active');
-            }
-        });
-    }
-    
-    // 登录模态框关闭
-    if (loginModalClose) {
-        loginModalClose.addEventListener('click', (e) => {
-            e.stopPropagation();
-            e.preventDefault();
-            if (loginModal) {
-                loginModal.classList.remove('active');
-                loginModal.style.display = 'none';
-            }
-        });
-    }
-    
-    // 点击登录模态框外部关闭
-    if (loginModal) {
-        loginModal.addEventListener('click', (e) => {
-            // 只在点击模态框背景（而非内容区域）时关闭
-            if (e.target === loginModal && !e.target.closest('.modal-content')) {
-                loginModal.classList.remove('active');
-                loginModal.style.display = 'none';
             }
         });
     }

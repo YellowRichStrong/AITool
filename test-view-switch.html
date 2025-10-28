@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>视图切换测试</title>
+    <title>View Switch Test</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
 <!-- Google tag (gtag.js) -->
@@ -151,16 +151,16 @@
 <body>
     <div class="container">
         <div class="status">
-            <strong>当前视图：</strong> <span id="currentView">网格视图</span>
+            <strong>Current View:</strong> <span id="currentView">Grid View</span>
         </div>
 
         <div class="header">
-            <h2>工具列表</h2>
+            <h2>Tools List</h2>
             <div class="view-toggle">
-                <button class="view-btn active" data-view="grid" title="网格视图">
+                <button class="view-btn active" data-view="grid" title="Grid View">
                     <i class="fas fa-th"></i>
                 </button>
-                <button class="view-btn" data-view="list" title="列表视图">
+                <button class="view-btn" data-view="list" title="List View">
                     <i class="fas fa-list"></i>
                 </button>
             </div>
@@ -173,7 +173,7 @@
                 </div>
                 <div class="tool-content">
                     <div class="tool-name">ChatGPT</div>
-                    <div class="tool-description">强大的AI对话助手，能够回答各种问题并协助完成多种任务</div>
+                    <div class="tool-description">Powerful AI conversation assistant capable of answering various questions and assisting with multiple tasks</div>
                 </div>
             </div>
 
@@ -183,7 +183,7 @@
                 </div>
                 <div class="tool-content">
                     <div class="tool-name">Midjourney</div>
-                    <div class="tool-description">专业的AI图像生成工具，能够根据文字描述生成高质量艺术作品</div>
+                    <div class="tool-description">Professional AI image generation tool that can create high-quality artwork from text descriptions</div>
                 </div>
             </div>
 
@@ -193,7 +193,7 @@
                 </div>
                 <div class="tool-content">
                     <div class="tool-name">GitHub Copilot</div>
-                    <div class="tool-description">AI编程助手，能够自动补全代码并提供编程建议</div>
+                    <div class="tool-description">AI programming assistant that can auto-complete code and provide programming suggestions</div>
                 </div>
             </div>
 
@@ -203,7 +203,7 @@
                 </div>
                 <div class="tool-content">
                     <div class="tool-name">Runway</div>
-                    <div class="tool-description">AI视频编辑和生成平台，支持多种视频处理功能</div>
+                    <div class="tool-description">AI video editing and generation platform that supports multiple video processing functions</div>
                 </div>
             </div>
         </div>
@@ -214,7 +214,7 @@
         document.querySelectorAll('.view-btn').forEach(btn => {
             btn.addEventListener('click', () => {
                 const view = btn.dataset.view;
-                console.log('切换视图到:', view);
+                console.log('Switch view to:', view);
 
                 // 更新按钮状态
                 document.querySelectorAll('.view-btn').forEach(b => b.classList.remove('active'));
@@ -225,11 +225,11 @@
                 if (view === 'grid') {
                     toolsGrid.classList.remove('list-view');
                     toolsGrid.classList.add('grid-view');
-                    document.getElementById('currentView').textContent = '网格视图';
+                    document.getElementById('currentView').textContent = 'Grid View';
                 } else if (view === 'list') {
                     toolsGrid.classList.remove('grid-view');
                     toolsGrid.classList.add('list-view');
-                    document.getElementById('currentView').textContent = '列表视图';
+                    document.getElementById('currentView').textContent = 'List View';
                 }
 
                 console.log('toolsGrid classes:', toolsGrid.className);
