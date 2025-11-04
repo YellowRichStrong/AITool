@@ -1,5 +1,5 @@
 # AI Tools Hub - Robots.txt
-# Website: https://yoursite.com
+# Website: https://ballstar.cc
 
 User-agent: *
 Allow: /
@@ -9,35 +9,22 @@ Allow: /index.html
 Allow: /styles.css
 Allow: /script.js
 
-# Disallow access to test pages
-Disallow: /test-*.html
-Disallow: /debug-*.html
-Disallow: /login-test.html
-Disallow: /click-test.html
-
 # Sitemap
-Sitemap: https://yoursite.com/sitemap.xml
+Sitemap: https://ballstar.cc/sitemap.xml
 
-# Crawl delay (optional, to prevent excessive crawling)
-Crawl-delay: 1
+# Crawl-delay directive (optional, be cautious with this)
+Crawl-delay: 10
 
 # Configuration for specific search engines
 # Google
 User-agent: Googlebot
 Allow: /
-Crawl-delay: 0
 
 # Bing
 User-agent: Bingbot
 Allow: /
-Crawl-delay: 0
 
-# Baidu
-User-agent: Baiduspider
-Allow: /
-Crawl-delay: 1
 
-# Yandex
-User-agent: Yandex
+User-agent: Slurp
 Allow: /
-Crawl-delay: 1
+
