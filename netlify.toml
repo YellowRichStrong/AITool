@@ -4,10 +4,7 @@
   publish = "."
   command = "echo 'No build required for static site'"
 
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
+# 移除所有重定向配置以防止跳转到第三方网站
 
 [[headers]]
   for = "/*"

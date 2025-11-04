@@ -9,22 +9,35 @@ Allow: /index.html
 Allow: /styles.css
 Allow: /script.js
 
-# Sitemap
-Sitemap: https://ballstar.cc/sitemap/sitemap.xml
+# Disallow access to test pages
+Disallow: /test-*.html
+Disallow: /debug-*.html
+Disallow: /login-test.html
+Disallow: /click-test.html
 
-# Crawl-delay directive (optional, be cautious with this)
-Crawl-delay: 10
+# Sitemap
+Sitemap: https://ballstar.cc/sitemap.xml
+
+# Crawl delay (optional, to prevent excessive crawling)
+Crawl-delay: 1
 
 # Configuration for specific search engines
 # Google
 User-agent: Googlebot
 Allow: /
+Crawl-delay: 0
 
 # Bing
 User-agent: Bingbot
 Allow: /
+Crawl-delay: 0
 
-
-User-agent: Slurp
+# Baidu
+User-agent: Baiduspider
 Allow: /
+Crawl-delay: 1
 
+# Yandex
+User-agent: Yandex
+Allow: /
+Crawl-delay: 1

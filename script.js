@@ -1362,6 +1362,40 @@ function generateStars(rating) {
     return stars;
 }
 
+// 渲染工具卡片
+function renderToolCard(tool) {
+    const card = document.createElement('div');
+    card.className = 'tool-card';
+    card.innerHTML = `
+        <div class="tool-image">
+            <i class="${tool.image}"></i>
+        </div>
+        <div class="tool-info">
+            <h3>${tool.name}</h3>
+            <p>${tool.description}</p>
+            <div class="tool-meta">
+                <div class="tool-rating">
+                    <i class="fas fa-star"></i>
+                    <span>${tool.rating}</span>
+                    <span>(${tool.reviews})</span>
+                </div>
+                <div class="tool-category">${tool.category}</div>
+            </div>
+            <div class="tool-tags">
+                ${tool.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
+            </div>
+            <div class="tool-actions">
+                <!-- 移除跳转到第三方网站的按钮 -->
+                <button class="btn-primary" disabled>${t('tools.useNow')}</button>
+                <button class="btn-secondary" onclick="toggleFavorite(${tool.id})">
+                    <i class="far fa-heart"></i> ${t('tools.favorite')}
+                </button>
+            </div>
+        </div>
+    `;
+    return card;
+}
+
 // 显示工具详情模态框
 function showToolModal(tool) {
     document.getElementById('modalToolName').textContent = tool.name;
@@ -1378,8 +1412,10 @@ function showToolModal(tool) {
     
     const downloadBtn = document.getElementById('modalToolDownload');
     if (downloadBtn) {
-        downloadBtn.innerHTML = `<i class="fas fa-external-link-alt"></i> ${t('tools.useNow')}`;
-        downloadBtn.onclick = () => openTool(tool.url);
+        downloadBtn.innerHTML = `<i class="fas fa-external-link-alt"></i> ${t('tools.useNow')} (Disabled)`;
+        // 移除跳转到第三方网站的功能
+        // downloadBtn.onclick = () => openTool(tool.url);
+        downloadBtn.disabled = true;
     }
     
     const favoriteBtn = document.getElementById('modalToolFavorite');
@@ -1434,7 +1470,9 @@ function addToolStructuredData(tool) {
 
 // 打开工具链接
 function openTool(url) {
-    window.open(url, '_blank');
+    // 移除跳转到第三方网站的功能
+    console.log('Redirect to third-party website has been disabled for security reasons');
+    // window.open(url, '_blank');
 }
 
 // 切换收藏状态
@@ -2446,12 +2484,12 @@ function addArticleStructuredData(article) {
             "name": "AI工具大全",
             "logo": {
                 "@type": "ImageObject",
-                "url": "https://yoursite.com/images/logo.png"
+                "url": "https://ballstar.cc/images/logo.png"
             }
         },
         "mainEntityOfPage": {
             "@type": "WebPage",
-            "@id": `https://yoursite.com/article/${article.id}`
+            "@id": `https://ballstar.cc/article/${article.id}`
         },
         "keywords": article.tags.join(', '),
         "articleSection": article.category,
