@@ -16,7 +16,7 @@ Disallow: /login-test.html
 Disallow: /click-test.html
 
 # Sitemap
-Sitemap: https://ballstar.cc/sitemap.xml
+Sitemap: https://ballstar.cc/sitemap/sitemap.xml
 
 # Crawl delay (optional, to prevent excessive crawling)
 Crawl-delay: 1
