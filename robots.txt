@@ -10,7 +10,7 @@ Allow: /styles.css
 Allow: /script.js
 
 # Sitemap
-Sitemap: https://ballstar.cc/sitemap.xml
+Sitemap: https://ballstar.cc/sitemap/sitemap.xml
 
 # Crawl-delay directive (optional, be cautious with this)
 Crawl-delay: 10
