@@ -1,43 +1,14 @@
-# AI Tools Hub - Robots.txt
-# Website: https://ballstar.cc
-
 User-agent: *
+Crawl-delay: 10
 Allow: /
 
-# Allow access to core pages
-Allow: /index.html
-Allow: /styles.css
-Allow: /script.js
+User-agent: MJ12bot
+Disallow: /
 
-# Disallow access to test pages
-Disallow: /test-*.html
-Disallow: /debug-*.html
-Disallow: /login-test.html
-Disallow: /click-test.html
+User-agent: AhrefsBot
+Disallow: /
 
-# Sitemap
-Sitemap: https://ballstar.cc/sitemap/sitemap.xml
+User-agent: SemrushBot
+Disallow: /
 
-# Crawl delay (optional, to prevent excessive crawling)
-Crawl-delay: 1
-
-# Configuration for specific search engines
-# Google
-User-agent: Googlebot
-Allow: /
-Crawl-delay: 0
-
-# Bing
-User-agent: Bingbot
-Allow: /
-Crawl-delay: 0
-
-# Baidu
-User-agent: Baiduspider
-Allow: /
-Crawl-delay: 1
-
-# Yandex
-User-agent: Yandex
-Allow: /
-Crawl-delay: 1
+Sitemap: https://nba110.com/sitemap.xml

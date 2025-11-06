@@ -1,0 +1,59 @@
+/* Category Page Specific Styles */
+
+.category-header {
+    margin-bottom: 30px;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.category-header h1 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.category-header p {
+    font-size: 1.1rem;
+    color: #666;
+    line-height: 1.6;
+}
+
+/* Breadcrumb Styles */
+.breadcrumb {
+    padding: 15px 0;
+    background-color: #f8f9fa;
+}
+
+.breadcrumb .container {
+    font-size: 0.9rem;
+}
+
+.breadcrumb a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.breadcrumb a:hover {
+    text-decoration: underline;
+}
+
+.breadcrumb span {
+    color: #666;
+}
+
+/* Responsive adjustments for category pages */
+@media (max-width: 768px) {
+    .category-header h1 {
+        font-size: 1.5rem;
+    }
+    
+    .category-header p {
+        font-size: 1rem;
+    }
+    
+    .breadcrumb {
+        padding: 10px 0;
+    }
+}

@@ -1,0 +1,17 @@
+# Prevent hotlinking of images
+RewriteEngine on
+RewriteCond %{HTTP_REFERER} !^$
+RewriteCond %{HTTP_REFERER} !^http(s)?://(www\.)?nba110.com [NC]
+RewriteCond %{HTTP_REFERER} !^http(s)?://(www\.)?nba110\.com [NC]
+RewriteRule \.(jpg|jpeg|png|gif|JPG|JPEG|PNG|GIF)$ - [NC,F,L]
+
+# Allow access to images only through the website
+<FilesMatch "\.(jpg|jpeg|png|gif|JPG|JPEG|PNG|GIF)$">
+    Order Allow,Deny
+    Allow from env=referer_ok
+</FilesMatch>
+
+SetEnvIfNoCase Referer "^https://nba110.com/" referer_ok
+SetEnvIfNoCase Referer "^https://www.nba110.com/" referer_ok
+SetEnvIfNoCase Referer "^http://nba110.com/" referer_ok
+SetEnvIfNoCase Referer "^http://www.nba110.com/" referer_ok
