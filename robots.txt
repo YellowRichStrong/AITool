@@ -1,14 +1,4 @@
 User-agent: *
-Crawl-delay: 10
 Allow: /
-
-User-agent: MJ12bot
-Disallow: /
-
-User-agent: AhrefsBot
-Disallow: /
-
-User-agent: SemrushBot
-Disallow: /
 
 Sitemap: https://nba110.com/sitemap.xml

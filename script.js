@@ -42,155 +42,351 @@ document.addEventListener('DOMContentLoaded', function() {
 const wallpapers = [
     // Kobe Bryant wallpapers (newest first)
     {
-        id: 100,
+        id: 150,
+        name: "Kobe Bryant Wallpaper 50",
+        thumbnail: "iphone/Kobe Bryant/Kobe Bryant_6228.JPG",
+        original: "iphone/Kobe Bryant/Kobe Bryant_6228.JPG",
+        category: "Kobe Bryant"
+    },
+    {
+        id: 149,
+        name: "Kobe Bryant Wallpaper 49",
+        thumbnail: "iphone/Kobe Bryant/Kobe Bryant_6227.JPG",
+        original: "iphone/Kobe Bryant/Kobe Bryant_6227.JPG",
+        category: "Kobe Bryant"
+    },
+    {
+        id: 148,
+        name: "Kobe Bryant Wallpaper 48",
+        thumbnail: "iphone/Kobe Bryant/Kobe Bryant_6226.JPG",
+        original: "iphone/Kobe Bryant/Kobe Bryant_6226.JPG",
+        category: "Kobe Bryant"
+    },
+    {
+        id: 147,
+        name: "Kobe Bryant Wallpaper 47",
+        thumbnail: "iphone/Kobe Bryant/Kobe Bryant_6225.JPG",
+        original: "iphone/Kobe Bryant/Kobe Bryant_6225.JPG",
+        category: "Kobe Bryant"
+    },
+    {
+        id: 146,
+        name: "Kobe Bryant Wallpaper 46",
+        thumbnail: "iphone/Kobe Bryant/Kobe Bryant_6224.JPG",
+        original: "iphone/Kobe Bryant/Kobe Bryant_6224.JPG",
+        category: "Kobe Bryant"
+    },
+    {
+        id: 145,
+        name: "Kobe Bryant Wallpaper 45",
+        thumbnail: "iphone/Kobe Bryant/Kobe Bryant_6223.JPG",
+        original: "iphone/Kobe Bryant/Kobe Bryant_6223.JPG",
+        category: "Kobe Bryant"
+    },
+    {
+        id: 144,
+        name: "Kobe Bryant Wallpaper 44",
+        thumbnail: "iphone/Kobe Bryant/Kobe Bryant_6222.JPG",
+        original: "iphone/Kobe Bryant/Kobe Bryant_6222.JPG",
+        category: "Kobe Bryant"
+    },
+    {
+        id: 143,
+        name: "Kobe Bryant Wallpaper 43",
+        thumbnail: "iphone/Kobe Bryant/Kobe Bryant_6221.JPG",
+        original: "iphone/Kobe Bryant/Kobe Bryant_6221.JPG",
+        category: "Kobe Bryant"
+    },
+    {
+        id: 142,
+        name: "Kobe Bryant Wallpaper 42",
+        thumbnail: "iphone/Kobe Bryant/Kobe Bryant_6220.JPG",
+        original: "iphone/Kobe Bryant/Kobe Bryant_6220.JPG",
+        category: "Kobe Bryant"
+    },
+    {
+        id: 141,
+        name: "Kobe Bryant Wallpaper 41",
+        thumbnail: "iphone/Kobe Bryant/Kobe Bryant_6219.JPG",
+        original: "iphone/Kobe Bryant/Kobe Bryant_6219.JPG",
+        category: "Kobe Bryant"
+    },
+    {
+        id: 140,
+        name: "Kobe Bryant Wallpaper 40",
+        thumbnail: "iphone/Kobe Bryant/Kobe Bryant_6218.JPG",
+        original: "iphone/Kobe Bryant/Kobe Bryant_6218.JPG",
+        category: "Kobe Bryant"
+    },
+    {
+        id: 139,
+        name: "Kobe Bryant Wallpaper 39",
+        thumbnail: "iphone/Kobe Bryant/Kobe Bryant_6217.JPG",
+        original: "iphone/Kobe Bryant/Kobe Bryant_6217.JPG",
+        category: "Kobe Bryant"
+    },
+    {
+        id: 138,
+        name: "Kobe Bryant Wallpaper 38",
+        thumbnail: "iphone/Kobe Bryant/Kobe Bryant_6216.JPG",
+        original: "iphone/Kobe Bryant/Kobe Bryant_6216.JPG",
+        category: "Kobe Bryant"
+    },
+    {
+        id: 137,
+        name: "Kobe Bryant Wallpaper 37",
+        thumbnail: "iphone/Kobe Bryant/Kobe Bryant_6215.JPG",
+        original: "iphone/Kobe Bryant/Kobe Bryant_6215.JPG",
+        category: "Kobe Bryant"
+    },
+    {
+        id: 136,
+        name: "Kobe Bryant Wallpaper 36",
+        thumbnail: "iphone/Kobe Bryant/Kobe Bryant_6214.JPG",
+        original: "iphone/Kobe Bryant/Kobe Bryant_6214.JPG",
+        category: "Kobe Bryant"
+    },
+    {
+        id: 135,
+        name: "Kobe Bryant Wallpaper 35",
+        thumbnail: "iphone/Kobe Bryant/Kobe Bryant_6213.JPG",
+        original: "iphone/Kobe Bryant/Kobe Bryant_6213.JPG",
+        category: "Kobe Bryant"
+    },
+    {
+        id: 134,
+        name: "Kobe Bryant Wallpaper 34",
+        thumbnail: "iphone/Kobe Bryant/Kobe Bryant_6212.JPG",
+        original: "iphone/Kobe Bryant/Kobe Bryant_6212.JPG",
+        category: "Kobe Bryant"
+    },
+    {
+        id: 133,
+        name: "Kobe Bryant Wallpaper 33",
+        thumbnail: "iphone/Kobe Bryant/Kobe Bryant_6211.JPG",
+        original: "iphone/Kobe Bryant/Kobe Bryant_6211.JPG",
+        category: "Kobe Bryant"
+    },
+    {
+        id: 132,
+        name: "Kobe Bryant Wallpaper 32",
+        thumbnail: "iphone/Kobe Bryant/Kobe Bryant_6210.JPG",
+        original: "iphone/Kobe Bryant/Kobe Bryant_6210.JPG",
+        category: "Kobe Bryant"
+    },
+    {
+        id: 131,
+        name: "Kobe Bryant Wallpaper 31",
+        thumbnail: "iphone/Kobe Bryant/Kobe Bryant_6209.JPG",
+        original: "iphone/Kobe Bryant/Kobe Bryant_6209.JPG",
+        category: "Kobe Bryant"
+    },
+    {
+        id: 130,
+        name: "Kobe Bryant Wallpaper 30",
+        thumbnail: "iphone/Kobe Bryant/Kobe Bryant_6208.JPG",
+        original: "iphone/Kobe Bryant/Kobe Bryant_6208.JPG",
+        category: "Kobe Bryant"
+    },
+    {
+        id: 129,
+        name: "Kobe Bryant Wallpaper 29",
+        thumbnail: "iphone/Kobe Bryant/Kobe Bryant_6207.JPG",
+        original: "iphone/Kobe Bryant/Kobe Bryant_6207.JPG",
+        category: "Kobe Bryant"
+    },
+    {
+        id: 128,
+        name: "Kobe Bryant Wallpaper 28",
+        thumbnail: "iphone/Kobe Bryant/Kobe Bryant_6206.JPG",
+        original: "iphone/Kobe Bryant/Kobe Bryant_6206.JPG",
+        category: "Kobe Bryant"
+    },
+    {
+        id: 127,
+        name: "Kobe Bryant Wallpaper 27",
+        thumbnail: "iphone/Kobe Bryant/Kobe Bryant_6205.JPG",
+        original: "iphone/Kobe Bryant/Kobe Bryant_6205.JPG",
+        category: "Kobe Bryant"
+    },
+    {
+        id: 126,
+        name: "Kobe Bryant Wallpaper 26",
+        thumbnail: "iphone/Kobe Bryant/Kobe Bryant_6204.JPG",
+        original: "iphone/Kobe Bryant/Kobe Bryant_6204.JPG",
+        category: "Kobe Bryant"
+    },
+    {
+        id: 125,
+        name: "Kobe Bryant Wallpaper 25",
+        thumbnail: "iphone/Kobe Bryant/Kobe Bryant_6203.JPG",
+        original: "iphone/Kobe Bryant/Kobe Bryant_6203.JPG",
+        category: "Kobe Bryant"
+    },
+    {
+        id: 124,
+        name: "Kobe Bryant Wallpaper 24",
+        thumbnail: "iphone/Kobe Bryant/Kobe Bryant_6202.JPG",
+        original: "iphone/Kobe Bryant/Kobe Bryant_6202.JPG",
+        category: "Kobe Bryant"
+    },
+    {
+        id: 123,
         name: "Kobe Bryant Wallpaper 23",
+        thumbnail: "iphone/Kobe Bryant/Kobe Bryant_6201.JPG",
+        original: "iphone/Kobe Bryant/Kobe Bryant_6201.JPG",
+        category: "Kobe Bryant"
+    },
+    {
+        id: 122,
+        name: "Kobe Bryant Wallpaper 22",
         thumbnail: "iphone/Kobe Bryant/Kobe Bryant_6049.JPG",
         original: "iphone/Kobe Bryant/Kobe Bryant_6049.JPG",
         category: "Kobe Bryant"
     },
     {
-        id: 99,
-        name: "Kobe Bryant Wallpaper 22",
+        id: 121,
+        name: "Kobe Bryant Wallpaper 21",
         thumbnail: "iphone/Kobe Bryant/Kobe Bryant_6048.JPG",
         original: "iphone/Kobe Bryant/Kobe Bryant_6048.JPG",
         category: "Kobe Bryant"
     },
     {
-        id: 98,
-        name: "Kobe Bryant Wallpaper 21",
+        id: 120,
+        name: "Kobe Bryant Wallpaper 20",
         thumbnail: "iphone/Kobe Bryant/Kobe Bryant_6047.JPG",
         original: "iphone/Kobe Bryant/Kobe Bryant_6047.JPG",
         category: "Kobe Bryant"
     },
     {
-        id: 97,
-        name: "Kobe Bryant Wallpaper 20",
+        id: 119,
+        name: "Kobe Bryant Wallpaper 19",
         thumbnail: "iphone/Kobe Bryant/Kobe Bryant_6046.JPG",
         original: "iphone/Kobe Bryant/Kobe Bryant_6046.JPG",
         category: "Kobe Bryant"
     },
     {
-        id: 96,
-        name: "Kobe Bryant Wallpaper 19",
+        id: 118,
+        name: "Kobe Bryant Wallpaper 18",
         thumbnail: "iphone/Kobe Bryant/Kobe Bryant_6045.JPG",
         original: "iphone/Kobe Bryant/Kobe Bryant_6045.JPG",
         category: "Kobe Bryant"
     },
     {
-        id: 95,
-        name: "Kobe Bryant Wallpaper 18",
+        id: 117,
+        name: "Kobe Bryant Wallpaper 17",
         thumbnail: "iphone/Kobe Bryant/Kobe Bryant_6044.JPG",
         original: "iphone/Kobe Bryant/Kobe Bryant_6044.JPG",
         category: "Kobe Bryant"
     },
     {
-        id: 94,
-        name: "Kobe Bryant Wallpaper 17",
+        id: 116,
+        name: "Kobe Bryant Wallpaper 16",
         thumbnail: "iphone/Kobe Bryant/Kobe Bryant_6043.JPG",
         original: "iphone/Kobe Bryant/Kobe Bryant_6043.JPG",
         category: "Kobe Bryant"
     },
     {
-        id: 93,
-        name: "Kobe Bryant Wallpaper 16",
+        id: 115,
+        name: "Kobe Bryant Wallpaper 15",
         thumbnail: "iphone/Kobe Bryant/Kobe Bryant_6042.JPG",
         original: "iphone/Kobe Bryant/Kobe Bryant_6042.JPG",
         category: "Kobe Bryant"
     },
     {
-        id: 92,
-        name: "Kobe Bryant Wallpaper 15",
+        id: 114,
+        name: "Kobe Bryant Wallpaper 14",
         thumbnail: "iphone/Kobe Bryant/Kobe Bryant_6041.JPG",
         original: "iphone/Kobe Bryant/Kobe Bryant_6041.JPG",
         category: "Kobe Bryant"
     },
     {
-        id: 91,
-        name: "Kobe Bryant Wallpaper 14",
+        id: 113,
+        name: "Kobe Bryant Wallpaper 13",
         thumbnail: "iphone/Kobe Bryant/Kobe Bryant_6040.JPG",
         original: "iphone/Kobe Bryant/Kobe Bryant_6040.JPG",
         category: "Kobe Bryant"
     },
     {
-        id: 90,
-        name: "Kobe Bryant Wallpaper 13",
+        id: 112,
+        name: "Kobe Bryant Wallpaper 12",
         thumbnail: "iphone/Kobe Bryant/Kobe Bryant_6039.JPG",
         original: "iphone/Kobe Bryant/Kobe Bryant_6039.JPG",
         category: "Kobe Bryant"
     },
     {
-        id: 89,
-        name: "Kobe Bryant Wallpaper 12",
+        id: 111,
+        name: "Kobe Bryant Wallpaper 11",
         thumbnail: "iphone/Kobe Bryant/Kobe Bryant_5954.JPG",
         original: "iphone/Kobe Bryant/Kobe Bryant_5954.JPG",
         category: "Kobe Bryant"
     },
     {
-        id: 88,
-        name: "Kobe Bryant Wallpaper 11",
+        id: 110,
+        name: "Kobe Bryant Wallpaper 10",
         thumbnail: "iphone/Kobe Bryant/Kobe Bryant_5952.JPG",
         original: "iphone/Kobe Bryant/Kobe Bryant_5952.JPG",
         category: "Kobe Bryant"
     },
     {
-        id: 87,
-        name: "Kobe Bryant Wallpaper 10",
+        id: 109,
+        name: "Kobe Bryant Wallpaper 9",
         thumbnail: "iphone/Kobe Bryant/Kobe Bryant_5951.JPG",
         original: "iphone/Kobe Bryant/Kobe Bryant_5951.JPG",
         category: "Kobe Bryant"
     },
     {
-        id: 86,
-        name: "Kobe Bryant Wallpaper 9",
+        id: 108,
+        name: "Kobe Bryant Wallpaper 8",
         thumbnail: "iphone/Kobe Bryant/Kobe Bryant_5949.JPG",
         original: "iphone/Kobe Bryant/Kobe Bryant_5949.JPG",
         category: "Kobe Bryant"
     },
     {
-        id: 85,
-        name: "Kobe Bryant Wallpaper 8",
+        id: 107,
+        name: "Kobe Bryant Wallpaper 7",
         thumbnail: "iphone/Kobe Bryant/Kobe Bryant_5948.JPG",
         original: "iphone/Kobe Bryant/Kobe Bryant_5948.JPG",
         category: "Kobe Bryant"
     },
     {
-        id: 84,
-        name: "Kobe Bryant Wallpaper 7",
+        id: 106,
+        name: "Kobe Bryant Wallpaper 6",
         thumbnail: "iphone/Kobe Bryant/Kobe Bryant_5947.JPG",
         original: "iphone/Kobe Bryant/Kobe Bryant_5947.JPG",
         category: "Kobe Bryant"
     },
     {
-        id: 83,
-        name: "Kobe Bryant Wallpaper 6",
+        id: 105,
+        name: "Kobe Bryant Wallpaper 5",
         thumbnail: "iphone/Kobe Bryant/Kobe Bryant_5946.JPG",
         original: "iphone/Kobe Bryant/Kobe Bryant_5946.JPG",
         category: "Kobe Bryant"
     },
     {
-        id: 82,
-        name: "Kobe Bryant Wallpaper 5",
+        id: 104,
+        name: "Kobe Bryant Wallpaper 4",
         thumbnail: "iphone/Kobe Bryant/Kobe Bryant_5945.JPG",
         original: "iphone/Kobe Bryant/Kobe Bryant_5945.JPG",
         category: "Kobe Bryant"
     },
     {
-        id: 81,
-        name: "Kobe Bryant Wallpaper 4",
+        id: 103,
+        name: "Kobe Bryant Wallpaper 3",
         thumbnail: "iphone/Kobe Bryant/Kobe Bryant_5944.JPG",
         original: "iphone/Kobe Bryant/Kobe Bryant_5944.JPG",
         category: "Kobe Bryant"
     },
     {
-        id: 80,
-        name: "Kobe Bryant Wallpaper 3",
+        id: 102,
+        name: "Kobe Bryant Wallpaper 2",
         thumbnail: "iphone/Kobe Bryant/Kobe Bryant_5943.JPG",
         original: "iphone/Kobe Bryant/Kobe Bryant_5943.JPG",
         category: "Kobe Bryant"
     },
     {
-        id: 79,
-        name: "Kobe Bryant Wallpaper 2",
+        id: 101,
+        name: "Kobe Bryant Wallpaper 1",
         thumbnail: "iphone/Kobe Bryant/Kobe Bryant_5942.JPG",
         original: "iphone/Kobe Bryant/Kobe Bryant_5942.JPG",
         category: "Kobe Bryant"
@@ -358,6 +554,7 @@ const wallpapers = [
         original: "iphone/Kyrie Irving/Kyrie Irving_6052.JPG",
         category: "Kyrie Irving"
     },
+    // Allen Iverson wallpapers (newest first)
     {
         id: 55,
         name: "Allen Iverson Wallpaper 17",
@@ -1677,7 +1874,7 @@ function displayWallpapers(wallpaperList) {
         wallpaperElement.className = 'wallpaper-item';
         wallpaperElement.innerHTML = `
             <div class="free-badge">Free</div>
-            <img src="${wallpaper.thumbnail}" alt="${wallpaper.name}" class="wallpaper-thumb" data-id="${wallpaper.id}">
+            <img src="${wallpaper.thumbnail}" alt="${wallpaper.name}" class="wallpaper-thumb" data-id="${wallpaper.id}" loading="lazy">
             <button class="download-thumb-btn" data-id="${wallpaper.id}">Download</button>
         `;
         wallpapersContainer.appendChild(wallpaperElement);
@@ -1685,6 +1882,11 @@ function displayWallpapers(wallpaperList) {
     
     // Add event listeners to new elements
     addWallpaperEventListeners();
+    
+    // Trigger loading of images that are in viewport
+    if ('IntersectionObserver' in window) {
+        loadVisibleImages();
+    }
 }
 
 // Add event listeners to wallpaper elements
@@ -1843,3 +2045,21 @@ window.addEventListener('click', function(event) {
         previewModal.style.display = 'none';
     }
 });
+
+// Load images that are in viewport
+function loadVisibleImages() {
+    const imageObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const img = entry.target;
+                // Trigger loading by removing lazy loading attribute
+                img.loading = 'eager';
+                observer.unobserve(img);
+            }
+        });
+    });
+
+    document.querySelectorAll('.wallpaper-thumb').forEach(img => {
+        imageObserver.observe(img);
+    });
+}

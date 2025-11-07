@@ -5,6 +5,11 @@
     box-sizing: border-box;
 }
 
+/* Performance optimization */
+.wallpaper-item {
+    will-change: transform, box-shadow;
+}
+
 /* Prevent image dragging */
 img {
     -webkit-user-drag: none;
@@ -186,17 +191,19 @@ header .container {
     display: block;
     padding: 8px 12px; /* Reduced padding */
     border-radius: 5px;
-    transition: all 0.3s;
+    transition: all 0.3s ease;
 }
 
 .category-link:hover {
     background-color: #f8f9fa;
     color: #007bff;
+    transition: all 0.3s ease;
 }
 
 .category-link.active {
     background-color: #007bff;
     color: white;
+    transition: all 0.3s ease;
 }
 
 /* Gallery Main */
@@ -256,7 +263,7 @@ header .container {
     border-radius: 10px;
     overflow: hidden;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s, box-shadow 0.3s;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
     position: relative;
     cursor: pointer;
 }
@@ -264,6 +271,7 @@ header .container {
 .wallpaper-item:hover {
     transform: translateY(-5px);
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .free-badge {
