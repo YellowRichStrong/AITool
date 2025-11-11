@@ -1846,12 +1846,20 @@ let currentSortOrder = 'newest';
 // Initialize the page
 document.addEventListener('DOMContentLoaded', function() {
     console.log('Ballstar website loaded');
-    displayWallpapers(wallpapers);
+    // Skip displayWallpapers on blog page
+    if (!window.isBlogPage && wallpapersContainer) {
+        displayWallpapers(wallpapers);
+    }
     setupEventListeners();
 });
 
 // Display wallpapers in the grid
 function displayWallpapers(wallpaperList) {
+    // Check if wallpapersContainer exists before manipulating it
+    if (!wallpapersContainer) {
+        return;
+    }
+    
     wallpapersContainer.innerHTML = '';
     
     if (wallpaperList.length === 0) {
