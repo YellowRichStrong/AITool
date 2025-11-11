@@ -17,9 +17,6 @@ img {
     -moz-user-drag: none;
     -o-user-drag: none;
     user-drag: none;
-    
-    /* Prevent right-click context menu */
-    pointer-events: none;
 }
 
 /* Re-enable pointer events for interactive elements */

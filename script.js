@@ -21,14 +21,8 @@ function checkReferrer() {
 
 // Disable right-click context menu
 function disableRightClick() {
-    document.addEventListener('contextmenu', function(e) {
-        // Allow right-click on input elements
-        if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') {
-            return;
-        }
-        e.preventDefault();
-        return false;
-    });
+    // Right-click is now enabled
+    return;
 }
 
 // Check referrer on page load
