@@ -31,7 +31,7 @@ def get_jpg_files(dir_path):
 
 def generate_wallpaper_data():
     """生成新的壁纸数据"""
-    iphone_dir = '/Users/macbookpro/Desktop/html_wangxiao/ballstar/iphone'
+    iphone_dir = '/Users/macbookpro/Desktop/html_wangxiao/nba110/iphone'
     wallpapers = []
     id_counter = 1000  # 从1000开始，避免与现有ID冲突
 
@@ -95,7 +95,7 @@ def main():
     js_code = generate_js_code(wallpapers)
     
     # 输出到文件
-    output_file = '/Users/macbookpro/Desktop/html_wangxiao/ballstar/wallpapers_new.js'
+    output_file = '/Users/macbookpro/Desktop/html_wangxiao/nba110/wallpapers_new.js'
     with open(output_file, 'w') as f:
         f.write(js_code)
     
